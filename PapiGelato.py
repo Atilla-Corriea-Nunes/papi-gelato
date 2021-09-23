@@ -1,21 +1,18 @@
-hoeveelheid = ("")
-aantalvraag = ("")
+
 
 def imsorry():
     print("Sorry, dat snap ik niet")
 
 while (True):
+    hoeveelheid = ("")
+    aantalvraag = ("")
+    x = 1
+    counter = 0
+
+
     print("“Welkom bij Papi Gelato je mag alle smaken kiezen zolang het maar vanille ijs is.")
     print("")
-    print("Welke smaak ijs wilt u?")
-    print("Keuzes smaak: Vanille, vanille, vanille of vanille")
-    while (True):
-        smaak = input("Smaak: ")
-        if (smaak.lower() == "vanille"):
-            break
-        else:
-            print("Die smaak hebben we niet...")
-            continue
+
     while (True):
         hoeveelheid = input("Hoeveel bolletjes wilt u? ")
         if (int(hoeveelheid.isnumeric()) == False):
@@ -34,7 +31,7 @@ while (True):
             continue
 
     while (True):
-        aantalvraag = input("Wilt u deze "+ str(hoeveelheid) +" bolletje(s) in A) een hoorntje of B) een bakje? (Hoorn/Bakje)")
+        aantalvraag = input("Wilt u deze "+ str(hoeveelheid) +" bolletje(s) in A) een hoorntje of B) een bakje? (Hoorn/Bakje) ")
         if (aantalvraag.lower() == "hoorn" ):
             keuze = ("hoorn")
             break
@@ -45,8 +42,20 @@ while (True):
             print("Sorry dat snap ik niet...")
             continue
 
+    while (int(hoeveelheid) > int(counter)):
+        bolsmaak = input("Welke smaak wilt u voor bolletje nummer "+ str(counter + 1) +"? A) Aardbei, C) Chocolade, M) Munt of V) Vanille? ")
+        if  (int(hoeveelheid) < int(counter)):
+            break
+
+        elif (bolsmaak.lower() == "a" or bolsmaak.lower() == "c" or bolsmaak.lower() == "m" or bolsmaak.lower() == "v"):
+            counter = int(counter) + 1
+            continue
+        elif (bolsmaak.lower() != "a" or bolsmaak.lower() != "c" or bolsmaak.lower() != "m" or bolsmaak.lower() !=  "v"):
+            imsorry()
+            continue
+
     while (True):
-        nogeenkeer = input("Hier is uw "+ str(keuze) +" met "+ str(hoeveelheid) +" bolletje(s). Wilt u nog meer bestellen? (Y/N)")
+        nogeenkeer = input("Hier is uw "+ str(keuze) +" met "+ str(hoeveelheid) +" bolletje(s). Wilt u nog meer bestellen? (Y/N) ")
         if (nogeenkeer.lower() == "y"):
             break
         elif(nogeenkeer.lower() == "n"):
