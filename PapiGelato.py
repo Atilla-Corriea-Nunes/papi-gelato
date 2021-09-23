@@ -1,7 +1,11 @@
 def imsorry():
     print("Sorry, dat snap ik niet")
 
-while (True):
+end = False
+hoorncounter = 0
+bakjecounter = 0
+
+while (end == False):
     hoeveelheid = ("")
     aantalvraag = ("")
     x = 1
@@ -32,9 +36,11 @@ while (True):
         aantalvraag = input("Wilt u deze "+ str(hoeveelheid) +" bolletje(s) in A) een hoorntje of B) een bakje? (Hoorn/Bakje) ")
         if (aantalvraag.lower() == "hoorn" ):
             keuze = ("hoorn")
+            hoorncounter = hoorncounter + 1
             break
         elif (aantalvraag.lower() == "bakje"):
             keuze = ("bakje")
+            bakjecounter = bakjecounter + 1
             break
         else:
             print("Sorry dat snap ik niet...")
@@ -52,29 +58,35 @@ while (True):
             imsorry()
             continue
 
-    bolkost = (float(hoeveelheid) * 1.10)
-    totaaluitrekeningh = (float(hoeveelheid) * 1.10 + 1.25)
-    totaaluitrekeningb = (float(hoeveelheid) * 1.10 + 0.75)
-
-    print("------------['Papi gelato']------------")
-    print("")
-    print("Bolletjes        "+ str(hoeveelheid) +" x €1.10   = €"+ str(bolkost))
-    if (aantalvraag.lower() == "hoorn"):
-        print("Horentje         1 x €1.25   = €1.25")
-        print("                              ------ +")
-        print("Totaal                       = €"+ str(totaaluitrekeningh))
-    if (aantalvraag.lower() == "bakje"):
-        print("Bakje            1 x €0.75   = €0.75")
-        print("                              ------ +")
-        print("Totaal                       = €"+ str(totaaluitrekeningb))
-
     while (True):
         nogeenkeer = input("Hier is uw "+ str(keuze) +" met "+ str(hoeveelheid) +" bolletje(s). Wilt u nog meer bestellen? (Y/N) ")
         if (nogeenkeer.lower() == "y"):
             break
         elif(nogeenkeer.lower() == "n"):
-            print("Bedankt en tot ziens!")
-            quit()
+            end = True
+            break
         else:
             imsorry()
             continue
+
+    if (end == True):
+        break
+    else:
+        continue
+hoornkosten = (float(hoorncounter * 1.25))
+bakjekosten = (float(bakjecounter) * 0.75)
+bolkost = (float(hoeveelheid) * 1.10)
+totaaluitrekeningh = (float(hoeveelheid) * 1.10 + float(hoornkosten))
+totaaluitrekeningb = (float(hoeveelheid) * 1.10 + float(bakjekosten))
+
+print("------------['Papi gelato']------------")
+print("")
+print("Bolletjes        "+ str(hoeveelheid) +" x €1.10   = €"+ str(bolkost))
+if (aantalvraag.lower() == "hoorn"):
+    print("Horentje         "+ str(bakjecounter) +" x €1.25   = €"+ str(bakjekosten))
+    print("                              ------ +")
+    print("Totaal                       = €"+ str(totaaluitrekeningh))
+if (aantalvraag.lower() == "bakje"):
+    print("Bakje            "+ str(hoorncounter) +" x €0.75   = €"+ str(hoornkosten))
+    print("                              ------ +")
+    print("Totaal                       = €"+ str(totaaluitrekeningb))
