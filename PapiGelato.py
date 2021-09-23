@@ -1,5 +1,3 @@
-
-
 def imsorry():
     print("Sorry, dat snap ik niet")
 
@@ -10,7 +8,7 @@ while (True):
     counter = 0
 
 
-    print("“Welkom bij Papi Gelato je mag alle smaken kiezen zolang het maar vanille ijs is.")
+    print("“Welkom bij Papi Gelato.")
     print("")
 
     while (True):
@@ -53,6 +51,22 @@ while (True):
         elif (bolsmaak.lower() != "a" or bolsmaak.lower() != "c" or bolsmaak.lower() != "m" or bolsmaak.lower() !=  "v"):
             imsorry()
             continue
+
+    bolkost = (float(hoeveelheid) * 1.10)
+    totaaluitrekeningh = (float(hoeveelheid) * 1.10 + 1.25)
+    totaaluitrekeningb = (float(hoeveelheid) * 1.10 + 0.75)
+
+    print("------------['Papi gelato']------------")
+    print("")
+    print("Bolletjes        "+ str(hoeveelheid) +" x €1.10   = €"+ str(bolkost))
+    if (aantalvraag.lower() == "hoorn"):
+        print("Horentje         1 x €1.25   = €1.25")
+        print("                              ------ +")
+        print("Totaal                       = €"+ str(totaaluitrekeningh))
+    if (aantalvraag.lower() == "bakje"):
+        print("Bakje            1 x €0.75   = €0.75")
+        print("                              ------ +")
+        print("Totaal                       = €"+ str(totaaluitrekeningb))
 
     while (True):
         nogeenkeer = input("Hier is uw "+ str(keuze) +" met "+ str(hoeveelheid) +" bolletje(s). Wilt u nog meer bestellen? (Y/N) ")
