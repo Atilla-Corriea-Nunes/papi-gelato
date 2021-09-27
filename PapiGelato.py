@@ -7,8 +7,15 @@ def hoorncalc():
 def bakjecalc():
     print("Bakje            "+ str(bakjecounter) +" x €0.75   = €"+ str(round(bakjekosten, 2)))
 
+def toppings():
+    if (toppingkosten > 0):
+        print("Topping          1 x €"+ str(toppingkosten) +"    = €"+ str(toppingkosten))
+    else:
+        pass
 def bonnetjeeinde():
     print("                              ------ +")
+
+
 
 end = False
 hoorncounter = 0
@@ -16,6 +23,10 @@ bakjecounter = 0
 heeftbakjebesteld = False
 heefthornbesteld = False
 hoeveelheidoplsaan = 0
+hoeveelheidbakje = 0
+hoeveelheidhoorn = 0
+toppingtimes = 0
+toppingkosten = 0
 
 print("Welkom bij Papi Gelato.")
 print("")
@@ -39,6 +50,7 @@ while (end == False):
             print("Dan krijgt u van mij een bakje met "+ str(hoeveelheid) +" bolletjes")
             keuze = ("bakje")
             heeftbakjebesteld = True
+            hoeveelheidbakje = int(hoeveelheidbakje) + 1
             bakjecounter = bakjecounter + 1
             break
         elif (int(hoeveelheid.isnumeric()) == True):
@@ -57,16 +69,26 @@ while (end == False):
             if (aantalvraag.lower() == "hoorn" ):
              keuze = ("hoorn")
              heefthornbesteld = True
+             hoeveelheidhoorn =  int(hoeveelheidhoorn) + 1
              hoorncounter = hoorncounter + 1
              break
             elif (aantalvraag.lower() == "bakje"):
              keuze = ("bakje")
              heeftbakjebesteld = True
+             hoeveelheidbakje = int(hoeveelheidbakje) + 1
              bakjecounter = bakjecounter + 1
              break
             else:
              print("Sorry dat snap ik niet...")
              continue
+
+    while (True):
+        whattopping = input("Wat voor topping wilt u: A) Geen, B) Slagroom, C) Sprinkels of D) Caramel Saus? ")
+        if (whattopping.lower() == "b" or whattopping.lower() == "c" or whattopping.lower() == "d" or whattopping.lower() == "a"):
+            break
+        else:
+            print("Sorry dat snap ik niet...")
+            continue
 
     
     while (int(hoeveelheid) > int(counter)):
@@ -81,7 +103,12 @@ while (end == False):
             imsorry()
             continue
     
-    
+    if (whattopping.lower() == "b"):
+        toppingkosten = float(toppingkosten) + 0.50
+    elif (whattopping.lower() == "c"):
+        toppingkosten = float(toppingkosten) + float(hoeveelheid) * 0.30
+    elif (whattopping.lower() == "d"):
+        toppingkosten = float(toppingkosten) + float(hoeveelheid) + (float(hoeveelheidbakje) * 0.90 + float(hoeveelheidhoorn) + 0.60)
 
     while (True):
         nogeenkeer = input("Hier is uw "+ str(keuze) +" met "+ str(hoeveelheid) +" bolletje(s). Wilt u nog meer bestellen? (Y/N) ")
@@ -94,18 +121,21 @@ while (end == False):
             imsorry()
             continue
 
+
     if (end == True):
         break
     else:
         continue
 
 
+
+
 hoornkosten = (float(hoorncounter * 1.25))
 bakjekosten = (float(bakjecounter) * 0.75)
 bolkost = (float(hoeveelheidoplsaan) * 1.10)
-totaaluitrekeningh = (float(hoeveelheidoplsaan) * 1.10 + float(hoornkosten))
-totaaluitrekeningb = (float(hoeveelheidoplsaan) * 1.10 + float(bakjekosten))
-totaaluitrekeningbeide = (float(hoeveelheidoplsaan) * 1.10 + float(bakjekosten) + float(hoornkosten))
+totaaluitrekeningh = (float(hoeveelheidoplsaan) * 1.10 + float(hoornkosten) + float(toppingkosten))
+totaaluitrekeningb = (float(hoeveelheidoplsaan) * 1.10 + float(bakjekosten) + float(toppingkosten))
+totaaluitrekeningbeide = (float(hoeveelheidoplsaan) * 1.10 + float(bakjekosten) + float(hoornkosten) + float(toppingkosten))
 
 print("------------['Papi gelato']------------")
 print("")
@@ -113,16 +143,16 @@ print("Bolletjes        "+ str(hoeveelheidoplsaan) +" x €1.10   = €"+ str(ro
 if (heefthornbesteld == True and heeftbakjebesteld == True):
     hoorncalc()
     bakjecalc()
+    toppings()
     bonnetjeeinde()
     print("Totaal                       = €"+ str(round(totaaluitrekeningbeide, 2)))
 elif (heefthornbesteld == True):
     hoorncalc()
+    toppings()
     bonnetjeeinde()
     print("Totaal                       = €"+ str(round(totaaluitrekeningh, 2)))
 elif (heeftbakjebesteld == True):
     bakjecalc()
+    toppings()
     bonnetjeeinde()
     print("Totaal                       = €"+ str(round(totaaluitrekeningb, 2)))
-
-
-
