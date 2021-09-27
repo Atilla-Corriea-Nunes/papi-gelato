@@ -58,13 +58,13 @@ while (end == False):
                 break
         
         while (int(lhoeveelheid) > int(counter)):
-            bolsmaak = input("Welke smaak wilt u voor liter nummer "+ str(counter + 1) +"? A) Aardbei, C) Chocolade, M) Munt of V) Vanille? ")
+            bolsmaak = input("Welke smaak wilt u voor liter nummer "+ str(counter + 1) +"? A) Aardbei, C) Chocolade of V) Vanille? ")
             if  (int(lhoeveelheid) < int(counter)):
                 break
-            elif (bolsmaak.lower() == "a" or bolsmaak.lower() == "c" or bolsmaak.lower() == "m" or bolsmaak.lower() == "v"):
+            elif (bolsmaak.lower() == "a" or bolsmaak.lower() == "c" or bolsmaak.lower() == "v"):
                 counter = int(counter) + 1
                 continue
-            elif (bolsmaak.lower() != "a" or bolsmaak.lower() != "c" or bolsmaak.lower() != "m" or bolsmaak.lower() !=  "v"):
+            elif (bolsmaak.lower() != "a" or bolsmaak.lower() != "c" or bolsmaak.lower() !=  "v"):
                 imsorry()
                 continue
         break
