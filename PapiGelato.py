@@ -197,11 +197,11 @@ if (parofza == "1"):
 
 elif (parofza == "2"):
     toltaaluitrekenenliter = (float(lhoeveelheid) * 9.80)
-    btwuitrekenen = (toltaaluitrekenenliter / 100) * 9
+    btwuitrekenen = (toltaaluitrekenenliter / 100) * 6
     print("------------['Papi gelato']------------")
     print("")
 
     print("Liter      "+ str(lhoeveelheid) +" x €9.80         = €"+ str(round(toltaaluitrekenenliter, 2)))
     bonnetjeeinde()
     print("Totaal                       = €"+ str(round(toltaaluitrekenenliter, 2)))
-    print("BTW (9%)                     = €"+ str(round(btwuitrekenen,2 )))
+    print("BTW (6%)                     = €"+ str(round(btwuitrekenen,2 )))
