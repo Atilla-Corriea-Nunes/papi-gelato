@@ -1,5 +1,5 @@
 def imsorry():
-    print("Sorry, dat snap ik niet")
+    print("Sorry dat is geen optie die we aanbieden...")
 
 def hoorncalc():
     print("Horentje         "+ str(hoorncounter) +" x €1.25   = €"+ str(round(hoornkosten, 2)))
