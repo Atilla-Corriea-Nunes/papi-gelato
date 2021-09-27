@@ -170,14 +170,14 @@ while (end == False):
 if (parofza == "1"):
     hoornkosten = (float(hoorncounter * 1.25))
     bakjekosten = (float(bakjecounter) * 0.75)
-    bolkost = (float(hoeveelheidoplsaan) * 1.10)
-    totaaluitrekeningh = (float(hoeveelheidoplsaan) * 1.10 + float(hoornkosten) + float(toppingkosten))
-    totaaluitrekeningb = (float(hoeveelheidoplsaan) * 1.10 + float(bakjekosten) + float(toppingkosten))
-    totaaluitrekeningbeide = (float(hoeveelheidoplsaan) * 1.10 + float(bakjekosten) + float(hoornkosten) + float(toppingkosten))
+    bolkost = (float(hoeveelheidoplsaan) * 0.95)
+    totaaluitrekeningh = (float(hoeveelheidoplsaan) * 0.95 + float(hoornkosten) + float(toppingkosten))
+    totaaluitrekeningb = (float(hoeveelheidoplsaan) * 0.95 + float(bakjekosten) + float(toppingkosten))
+    totaaluitrekeningbeide = (float(hoeveelheidoplsaan) * 0.95 + float(bakjekosten) + float(hoornkosten) + float(toppingkosten))
 
     print("------------['Papi gelato']------------")
     print("")
-    print("Bolletjes        "+ str(hoeveelheidoplsaan) +" x €1.10   = €"+ str(round(bolkost, 2)))
+    print("Bolletjes        "+ str(hoeveelheidoplsaan) +" x €0.95   = €"+ str(round(bolkost, 2)))
     if (heefthornbesteld == True and heeftbakjebesteld == True):
         hoorncalc()
         bakjecalc()
